@@ -50,7 +50,7 @@ process_input() {
     input=$(echo "$input" | xargs)
 
     case "$input" in
-        exit|quit|q)
+        exit|quit|q|/exit)
             clear
             printf "\n"
             printf "${GREEN}  感谢使用 vidai design！${NC}\n"
