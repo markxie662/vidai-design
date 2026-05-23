@@ -32,20 +32,20 @@ blink_text() {
 show_banner() {
     clear
 
-    # Animated tech border
+    # Artistic geometric logo
     printf "${CYAN}╔══════════════════════════════════════════════════════════════════════════════╗${NC}\n"
-
-    # Glowing effect header
-    printf "${CYAN}║${NC}  ${BOLD}${CYAN}███${NC}${WHITE}╗${NC}      ${BOLD}${CYAN}██╗${NC}      ${BOLD}${CYAN}██████╗${NC}     ${BOLD}${CYAN}██╗${NC}  ${BOLD}${CYAN}██████╗${NC}  ${BOLD}${CYAN}████████╗${NC}          ${CYAN}║${NC}\n"
-    printf "${CYAN}║${NC}  ${BOLD}${CYAN}███${NC}${WHITE}╔╝${NC}     ${BOLD}${CYAN}██║${NC}     ${BOLD}${CYAN}██╔═══██╗${NC}    ${BOLD}${CYAN}██║${NC} ${BOLD}${CYAN}██╔═══██╗${NC} ${BOLD}${CYAN}██╔═════██╗${NC}          ${CYAN}║${NC}\n"
-    printf "${CYAN}║${NC}  ${BOLD}${CYAN}███${NC}${WHITE}╚╝${NC}     ${BOLD}${CYAN}██║${NC}     ${BOLD}${CYAN}██████╔╝${NC}    ${BOLD}${CYAN}██║${NC} ${BOLD}${CYAN}██████╔╝${NC} ${BOLD}${CYAN}██║   ████╝${NC}          ${CYAN}║${NC}\n"
-    printf "${CYAN}║${NC}  ${BOLD}${CYAN}███${NC}${WHITE}╔╝${NC}     ${BOLD}${CYAN}██║${NC}     ${BOLD}${CYAN}██╔═══██╗${NC}    ${BOLD}${CYAN}██║${NC} ${BOLD}${CYAN}██╔═══╝${NC}  ${BOLD}${CYAN}██║   ██╔╝${NC}           ${CYAN}║${NC}\n"
-    printf "${CYAN}║${NC}  ${BOLD}${CYAN}███${NC}${WHITE}╔╝${NC}     ${BOLD}${CYAN}███████╗${NC}    ${BOLD}${CYAN}██████╔╝${NC}    ${BOLD}${CYAN}██║${NC} ${BOLD}${CYAN}███████╗${NC} ${BOLD}${CYAN}██║   ████╗${NC}          ${CYAN}║${NC}\n"
-    printf "${CYAN}║${NC}  ${BOLD}${CYAN}███${NC}${WHITE}╔╝${NC}     ${BOLD}${CYAN}╚══════╝${NC}    ${BOLD}${CYAN}╚═════╝${NC}     ${BOLD}${CYAN}╚═╝${NC} ${BOLD}${CYAN}╚══════╝${NC} ${BOLD}${CYAN}╚═╝   ╚═══╝${NC}          ${CYAN}║${NC}\n"
-
+    printf "${CYAN}║${NC}                                                                        ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}              ${MAGENTA}◗${CYAN}██${WHITE}██${CYAN}██${MAGENTA}◖${NC}        ${CYAN}╭────────╮${NC}        ${MAGENTA}◗${CYAN}██${WHITE}██${CYAN}██${MAGENTA}◖${NC}              ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}            ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}██${NC}      ${WHITE}╭────╮${MAGENTA}╰────╮${WHITE}╭────╮${NC}      ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}██${NC}            ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}          ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}███${MAGENTA}◖${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◗${CYAN}██${NC}    ${WHITE}╭────╯${MAGENTA}╰────╮${CYAN}╰────╯${WHITE}╭────╮${NC}    ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}███${MAGENTA}◖${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◗${CYAN}██${NC}          ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}        ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${NC}  ${WHITE}╭────╮${MAGENTA}╰────╮${CYAN}╭────╮${MAGENTA}╰────╮${WHITE}╭────╮${NC}  ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${NC}        ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}      ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${NC}    ${CYAN}╰────╮${WHITE}╭────╯${MAGENTA}╰────╮${CYAN}╭────╯${WHITE}╭────╯${CYAN}    ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${NC}      ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}        ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${NC}  ${WHITE}╭────╮${MAGENTA}╰────╮${CYAN}╭────╮${MAGENTA}╰────╮${WHITE}╭────╮${NC}  ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${NC}        ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}          ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}███${MAGENTA}◖${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◗${CYAN}██${NC}    ${WHITE}╰────╯${MAGENTA}╰────╯${CYAN}╰────╯${MAGENTA}╰────╯${WHITE}╰────╯${NC}    ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}███${MAGENTA}◖${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◗${CYAN}██${NC}          ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}            ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}██${NC}      ${CYAN}╰────────────────────────╯${NC}      ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}██${NC}            ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}              ${MAGENTA}◖${CYAN}██${WHITE}██${CYAN}██${MAGENTA}◗${NC}                                            ${MAGENTA}◖${CYAN}██${WHITE}██${CYAN}██${MAGENTA}◗${NC}              ${CYAN}║${NC}\n"
     printf "${CYAN}║${NC}                                                                        ${CYAN}║${NC}\n"
 
-    # Version and branding
     printf "${CYAN}║${NC}       ${BOLD}${WHITE}┌──────────────────────────────────────────────┐${NC}         ${CYAN}║${NC}\n"
     printf "${CYAN}║${NC}       ${BOLD}${WHITE}│${NC}  ${BOLD}${MAGENTA}▶${NC} ${BOLD}${WHITE}VidAI${NC} ${BOLD}${CYAN}Design${NC} ${GREEN}v${NC}${BOLD}${GREEN}0.1.0${NC} ${BOLD}${CYAN}◀${NC}                    ${BOLD}${WHITE}│${NC}         ${CYAN}║${NC}\n"
     printf "${CYAN}║${NC}       ${BOLD}${WHITE}│${NC}  ${BOLD}${CYAN}AI-Powered Video Creation Tool${NC}                 ${BOLD}${WHITE}│${NC}         ${CYAN}║${NC}\n"
