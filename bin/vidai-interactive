@@ -17,18 +17,22 @@ show_banner() {
     clear
 
     printf "\n"
-    printf "${BOLD}${WHITE}  vidai design${NC} ${GREEN}%s${NC}\n" "$VERSION"
-    printf "${CYAN}  ─────────────────────────────────────────────${NC}\n"
-    printf "${GRAY}  AI Video Creation Studio${NC}\n"
-    printf "\n"
-    printf "${CYAN}  ◆ 图片生成${NC}    ${MAGENTA}◆ 视频创作${NC}    ${YELLOW}◆ Prompt优化${NC}\n"
-    printf "\n"
-    printf "${GREEN}  快速开始:${NC}\n"
-    printf "${GRAY}  ▸${NC} 生成图片 [描述]     ${CYAN}→${NC} 生成图片 森林中的精灵\n"
-    printf "${GRAY}  ▸${NC} 生成视频 [描述]图   ${CYAN}→${NC} 生成视频 飞舞 fairy.png\n"
-    printf "${GRAY}  ▸${NC} 优化描述 [prompt]   ${CYAN}→${NC} 优化 森林精灵\n"
-    printf "\n"
-    printf "${GRAY}  💡 输入 /help 查看所有命令 | /exit 退出${NC}\n\n"
+    printf "${BOLD}${WHITE}  vidai design${NC}  ${GREEN}%s${NC}\n" "$VERSION"
+    printf "${GRAY}  ───────────────────────────────────────────${NC}\n"
+    printf "${GRAY}  AI Video Creation Studio${NC}\n\n"
+
+    printf "  ${CYAN}图片生成${NC}    ${MAGENTA}视频创作${NC}    ${YELLOW}Prompt优化${NC}\n\n"
+
+    printf "${GREEN}  快速开始${NC}\n"
+    printf "  ${GRAY}01.${NC} 生成图片 [描述]\n"
+    printf "      ${CYAN}→${NC} 生成图片 森林中的精灵\n\n"
+    printf "  ${GRAY}02.${NC} 生成视频 [描述] [图片]\n"
+    printf "      ${CYAN}→${NC} 生成视频 飞舞 fairy.png\n\n"
+    printf "  ${GRAY}03.${NC} 优化描述 [prompt]\n"
+    printf "      ${CYAN}→${NC} 优化 森林精灵\n\n"
+
+    printf "${GRAY}  ───────────────────────────────────────────${NC}\n"
+    printf "${YELLOW}  💡${NC} /help 帮助  /exit 退出\n\n"
 }
 
 process_input() {
@@ -38,8 +42,10 @@ process_input() {
     case "$input" in
         exit|quit|q)
             clear
-            printf "\n${GREEN}  感谢使用 vidai design！${NC}\n"
-            printf "${GRAY}  期待下次相见 ✨${NC}\n\n"
+            printf "\n"
+            printf "${GREEN}  感谢使用 vidai design！${NC}\n"
+            printf "${GRAY}  ───────────────────────────────────────────${NC}\n"
+            printf "  ${GRAY}期待下次相见${NC} ${WHITE}✨${NC}\n\n"
             exit 0
             ;;
         help|h|\?|/help)
@@ -69,36 +75,44 @@ process_input() {
 show_help() {
     printf "\n"
     printf "${BOLD}${CYAN}  命令帮助${NC}\n"
-    printf "${CYAN}  ────────────────────────────────────────${NC}\n\n"
-    printf "${GREEN}  基础命令:${NC}\n"
-    printf "    ${GREEN}/help${NC}     显示帮助信息\n"
-    printf "    ${GREEN}/clear${NC}    清屏重绘界面\n"
-    printf "    ${GREEN}/status${NC}   查看系统状态\n"
-    printf "    ${GREEN}/exit${NC}     退出程序\n\n"
-    printf "${CYAN}  功能命令:${NC}\n"
-    printf "    ${YELLOW}生成图片${NC} [描述]         使用Seedream生成图片\n"
-    printf "    ${YELLOW}生成视频${NC} [描述] [图片]  使用Seedance生成视频\n"
-    printf "    ${YELLOW}优化描述${NC} [prompt]       优化提示词\n\n"
+    printf "${GRAY}  ───────────────────────────────────────────${NC}\n\n"
+
+    printf "  ${GREEN}基础命令${NC}\n"
+    printf "  ${GRAY}01.${NC} /help   显示帮助信息\n"
+    printf "  ${GRAY}02.${NC} /clear  清屏重绘界面\n"
+    printf "  ${GRAY}03.${NC} /status 查看系统状态\n"
+    printf "  ${GRAY}04.${NC} /exit   退出程序\n\n"
+
+    printf "  ${CYAN}功能命令${NC}\n"
+    printf "  ${GRAY}01.${NC} 生成图片 [描述]\n"
+    printf "  ${GRAY}02.${NC} 生成视频 [描述] [图片]\n"
+    printf "  ${GRAY}03.${NC} 优化描述 [prompt]\n\n"
+
+    printf "${GRAY}  ───────────────────────────────────────────${NC}\n\n"
 }
 
 show_status() {
     printf "\n"
     printf "${BOLD}${MAGENTA}  系统状态${NC}\n"
-    printf "${MAGENTA}  ────────────────────────────────────────${NC}\n\n"
-    printf "  版本:     ${GREEN}%s${NC}\n" "$VERSION"
-    printf "  Seedream: "
+    printf "${GRAY}  ───────────────────────────────────────────${NC}\n\n"
+
+    printf "  ${WHITE}版本${NC}      ${GREEN}%s${NC}\n" "$VERSION"
+
+    printf "  ${CYAN}Seedream${NC}  "
     if [ -f "$SEEDREAM_SKILL" ]; then
         printf "${GREEN}✓ 已安装${NC}\n"
     else
         printf "${RED}✗ 未安装${NC}\n"
     fi
-    printf "  Seedance: "
+
+    printf "  ${MAGENTA}Seedance${NC}  "
     if [ -f "$SEEDANCE_SKILL" ]; then
         printf "${GREEN}✓ 已安装${NC}\n"
     else
         printf "${RED}✗ 未安装${NC}\n"
     fi
-    printf "\n"
+
+    printf "\n${GRAY}  ───────────────────────────────────────────${NC}\n\n"
 }
 
 handle_image() {
@@ -111,9 +125,9 @@ handle_image() {
     fi
 
     printf "\n${CYAN}  图片生成${NC}\n"
-    printf "${CYAN}  ────────────────────────────────────────${NC}\n"
-    printf "  描述: ${GREEN}%s${NC}\n" "$prompt"
-    printf "  状态: ${YELLOW}正在生成...${NC}\n\n"
+    printf "${GRAY}  ───────────────────────────────────────────${NC}\n"
+    printf "  ${WHITE}描述${NC}  ${GREEN}%s${NC}\n" "$prompt"
+    printf "  ${YELLOW}⏳ 正在生成...${NC}\n\n"
 
     if [ \! -f "$SEEDREAM_SKILL" ]; then
         printf "${RED}  ✗ 未找到 Seedream skill${NC}\n\n"
@@ -122,7 +136,8 @@ handle_image() {
 
     node "$SEEDREAM_SKILL" --prompt "$prompt" --size "2K" --mode "text-to-image" --watermark false --optimize true --response_format "png" 2>&1
 
-    printf "\n${GREEN}  ✓ 生成完成！${NC}\n\n"
+    printf "${GRAY}  ───────────────────────────────────────────${NC}\n"
+    printf "${GREEN}  ✓ 生成完成${NC}\n\n"
 }
 
 handle_video() {
@@ -136,10 +151,10 @@ handle_video() {
     fi
 
     printf "\n${MAGENTA}  视频生成${NC}\n"
-    printf "${MAGENTA}  ────────────────────────────────────────${NC}\n"
-    printf "  描述: ${GREEN}%s${NC}\n" "$prompt"
-    printf "  图片: ${GRAY}%s${NC}\n" "$image"
-    printf "  状态: ${YELLOW}正在生成...${NC}\n\n"
+    printf "${GRAY}  ───────────────────────────────────────────${NC}\n"
+    printf "  ${WHITE}描述${NC}  ${GREEN}%s${NC}\n" "$prompt"
+    printf "  ${WHITE}图片${NC}  ${GRAY}%s${NC}\n" "$image"
+    printf "  ${YELLOW}⏳ 正在生成...${NC}\n\n"
 
     if [ \! -f "$SEEDANCE_SKILL" ]; then
         printf "${RED}  ✗ 未找到 Seedance skill${NC}\n\n"
@@ -153,7 +168,8 @@ handle_video() {
 
     node "$SEEDANCE_SKILL" create --prompt "$prompt" --image-file "$image" --duration 5 --ratio "16:9" --resolution "720p" --generate-audio false --watermark false --return-last-frame true 2>&1
 
-    printf "\n${GREEN}  ✓ 生成完成！${NC}\n\n"
+    printf "${GRAY}  ───────────────────────────────────────────${NC}\n"
+    printf "${GREEN}  ✓ 生成完成${NC}\n\n"
 }
 
 handle_optimize() {
@@ -166,25 +182,34 @@ handle_optimize() {
     fi
 
     printf "\n${CYAN}  Prompt 优化${NC}\n"
-    printf "${CYAN}  ────────────────────────────────────────${NC}\n"
-    printf "  原始: ${GRAY}%s${NC}\n" "$prompt"
-    printf "  优化: ${GREEN}close-up shot, slow dolly in, %s,${NC}\n" "$prompt"
+    printf "${GRAY}  ───────────────────────────────────────────${NC}\n"
+
+    printf "  ${WHITE}原始${NC}  ${GRAY}%s${NC}\n" "$prompt"
+    printf "  ${WHITE}优化${NC}  ${GREEN}close-up shot, slow dolly in, %s,${NC}\n" "$prompt"
     printf "        ${GREEN}cinematic lighting, 4K${NC}\n\n"
-    printf "  建议:\n"
-    printf "    镜头: close-up / medium / wide\n"
-    printf "    运镜: dolly in / pull back / pan\n"
-    printf "    光影: cinematic / natural light\n"
-    printf "    质量: 4K / ultra detailed\n\n"
+
+    printf "  ${YELLOW}建议${NC}\n"
+    printf "  ${GRAY}镜头${NC}  close-up / medium / wide\n"
+    printf "  ${GRAY}运镜${NC}  dolly in / pull back / pan\n"
+    printf "  ${GRAY}光影${NC}  cinematic / natural light\n"
+    printf "  ${GRAY}质量${NC}  4K / ultra detailed\n\n"
+
+    printf "${GRAY}  ───────────────────────────────────────────${NC}\n\n"
 }
 
 handle_unknown() {
     local input="$1"
-    printf "\n${YELLOW}  未识别命令: ${GRAY}%s${NC}\n" "$input"
-    printf "\n  试试这些:\n"
-    printf "    ${CYAN}生成图片${NC} [描述]\n"
-    printf "    ${MAGENTA}生成视频${NC} [描述] [图片]\n"
-    printf "    ${YELLOW}优化描述${NC} [prompt]\n"
-    printf "    ${GREEN}/help${NC} 查看帮助\n\n"
+    printf "\n${YELLOW}  未识别命令${NC}\n"
+    printf "${GRAY}  ───────────────────────────────────────────${NC}\n"
+    printf "  ${GRAY}%s${NC}\n\n" "$input"
+
+    printf "  ${WHITE}试试这些${NC}\n"
+    printf "  ${GRAY}01.${NC} 生成图片 [描述]\n"
+    printf "  ${GRAY}02.${NC} 生成视频 [描述] [图片]\n"
+    printf "  ${GRAY}03.${NC} 优化描述 [prompt]\n"
+    printf "  ${GRAY}04.${NC} /help\n\n"
+
+    printf "${GRAY}  ───────────────────────────────────────────${NC}\n\n"
 }
 
 main() {
