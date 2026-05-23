@@ -32,40 +32,55 @@ blink_text() {
 show_banner() {
     clear
 
-    # Header gradient line
-    printf "${CYAN}┏"
-    for i in {1..76}; do printf "━"; done
-    printf "┓${NC}\n"
+    # Animated tech border
+    printf "${CYAN}╔══════════════════════════════════════════════════════════════════════════════╗${NC}\n"
 
-    # Logo section with diamond pattern
-    printf "${CYAN}┃${NC}                                                      ${CYAN}┃${NC}\n"
-    printf "${CYAN}┃${NC}                    ${MAGENTA}◢◤◢◤${NC}                                ${CYAN}┃${NC}\n"
-    printf "${CYAN}┃${NC}                  ${MAGENTA}◢◤${CYAN}██${MAGENTA}◥◣${NC}          ${WHITE}╺╺╸${NC} ${BOLD}${WHITE}VidAI${NC} ${BOLD}${CYAN}v${NC}${GREEN}0.1${NC}        ${CYAN}┃${NC}\n"
-    printf "${CYAN}┃${NC}                 ${MAGENTA}◢◤${CYAN}████${MAGENTA}◥◣${NC}         ${WHITE}╺╺╸${NC}  ${CYAN}AI Video Studio${NC}         ${CYAN}┃${NC}\n"
-    printf "${CYAN}┃${NC}                  ${MAGENTA}◢◤${CYAN}██${MAGENTA}◥◣${NC}                                   ${CYAN}┃${NC}\n"
-    printf "${CYAN}┃${NC}                    ${MAGENTA}◥◣◥◣${NC}                                   ${CYAN}┃${NC}\n"
-    printf "${CYAN}┃${NC}                                                      ${CYAN}┃${NC}\n"
+    # Glowing effect header
+    printf "${CYAN}║${NC}  ${BOLD}${CYAN}███${NC}${WHITE}╗${NC}      ${BOLD}${CYAN}██╗${NC}      ${BOLD}${CYAN}██████╗${NC}     ${BOLD}${CYAN}██╗${NC}  ${BOLD}${CYAN}██████╗${NC}  ${BOLD}${CYAN}████████╗${NC}          ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}  ${BOLD}${CYAN}███${NC}${WHITE}╔╝${NC}     ${BOLD}${CYAN}██║${NC}     ${BOLD}${CYAN}██╔═══██╗${NC}    ${BOLD}${CYAN}██║${NC} ${BOLD}${CYAN}██╔═══██╗${NC} ${BOLD}${CYAN}██╔═════██╗${NC}          ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}  ${BOLD}${CYAN}███${NC}${WHITE}╚╝${NC}     ${BOLD}${CYAN}██║${NC}     ${BOLD}${CYAN}██████╔╝${NC}    ${BOLD}${CYAN}██║${NC} ${BOLD}${CYAN}██████╔╝${NC} ${BOLD}${CYAN}██║   ████╝${NC}          ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}  ${BOLD}${CYAN}███${NC}${WHITE}╔╝${NC}     ${BOLD}${CYAN}██║${NC}     ${BOLD}${CYAN}██╔═══██╗${NC}    ${BOLD}${CYAN}██║${NC} ${BOLD}${CYAN}██╔═══╝${NC}  ${BOLD}${CYAN}██║   ██╔╝${NC}           ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}  ${BOLD}${CYAN}███${NC}${WHITE}╔╝${NC}     ${BOLD}${CYAN}███████╗${NC}    ${BOLD}${CYAN}██████╔╝${NC}    ${BOLD}${CYAN}██║${NC} ${BOLD}${CYAN}███████╗${NC} ${BOLD}${CYAN}██║   ████╗${NC}          ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}  ${BOLD}${CYAN}███${NC}${WHITE}╔╝${NC}     ${BOLD}${CYAN}╚══════╝${NC}    ${BOLD}${CYAN}╚═════╝${NC}     ${BOLD}${CYAN}╚═╝${NC} ${BOLD}${CYAN}╚══════╝${NC} ${BOLD}${CYAN}╚═╝   ╚═══╝${NC}          ${CYAN}║${NC}\n"
 
-    # Feature badges
-    printf "${CYAN}┃${NC}   ${GREEN}▸${NC} ${BOLD}${CYAN}图片生成${NC}    ${MAGENTA}▸${NC} ${BOLD}${MAGENTA}视频创作${NC}    ${YELLOW}▸${NC} ${BOLD}${YELLOW}Prompt优化${NC}           ${CYAN}┃${NC}\n"
-    printf "${CYAN}┃${NC}                                                      ${CYAN}┃${NC}\n"
+    printf "${CYAN}║${NC}                                                                        ${CYAN}║${NC}\n"
 
-    # Status bar
-    printf "${CYAN}┃${NC}  ${GREEN}●${NC} Seedream ${GREEN}●${NC} Seedance                              ${CYAN}┃${NC}\n"
-    printf "${CYAN}┃${NC}                                                      ${CYAN}┃${NC}\n"
+    # Version and branding
+    printf "${CYAN}║${NC}       ${BOLD}${WHITE}┌──────────────────────────────────────────────┐${NC}         ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}       ${BOLD}${WHITE}│${NC}  ${BOLD}${MAGENTA}▶${NC} ${BOLD}${WHITE}VidAI${NC} ${BOLD}${CYAN}Design${NC} ${GREEN}v${NC}${BOLD}${GREEN}0.1.0${NC} ${BOLD}${CYAN}◀${NC}                    ${BOLD}${WHITE}│${NC}         ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}       ${BOLD}${WHITE}│${NC}  ${BOLD}${CYAN}AI-Powered Video Creation Tool${NC}                 ${BOLD}${WHITE}│${NC}         ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}       ${BOLD}${WHITE}└──────────────────────────────────────────────┘${NC}         ${CYAN}║${NC}\n"
 
-    # Quick commands with modern formatting
-    printf "${CYAN}┃${NC}  ${GRAY}▸${NC} ${BOLD}img${NC} ${WHITE}[描述]${NC}         生成图片 ${CYAN}•${NC}  ${GRAY}▸${NC} ${BOLD}vid${NC} ${WHITE}[描述]${NC} ${CYAN}[图]${NC}      ${CYAN}┃${NC}\n"
-    printf "${CYAN}┃${NC}  ${GRAY}▸${NC} ${BOLD}opt${NC} ${WHITE}[prompt]${NC}       优化描述  ${CYAN}•${NC}  ${GRAY}▸${NC} ${BOLD}help${NC}              帮助     ${CYAN}┃${NC}\n"
-    printf "${CYAN}┃${NC}                                                      ${CYAN}┃${NC}\n"
+    printf "${CYAN}║${NC}                                                                        ${CYAN}║${NC}\n"
 
-    # Footer with gradient
-    printf "${CYAN}┗"
-    for i in {1..76}; do printf "━"; done
-    printf "┛${NC}\n"
+    # Feature grid
+    printf "${CYAN}║${NC}  ${GREEN}┌─ 核心功能 ─────────────────────────────────────────────┐${NC}  ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}  ${GREEN}│${NC}                                                            ${GREEN}│${NC}  ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}  ${GREEN}│${NC}  ${CYAN}◈${NC} ${BOLD}${CYAN}图片生成${NC}           ${CYAN}◈${NC} ${BOLD}${MAGENTA}视频创作${NC}           ${CYAN}◈${NC} ${BOLD}${YELLOW}Prompt优化${NC}  ${GREEN}│${NC}  ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}  ${GREEN}│${NC}  ${GRAY}Seedream API${NC}        ${GRAY}Seedance API${NC}         ${GRAY}智能增强${NC}        ${GREEN}│${NC}  ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}  ${GREEN}│${NC}                                                            ${GREEN}│${NC}  ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}  ${GREEN}└────────────────────────────────────────────────────────────┘${NC}  ${CYAN}║${NC}\n"
 
-    # Input prompt with style
-    printf "\n${BOLD}${GREEN}┌─[$(date +%H:%M)]─[VidAI]─[${GREEN}READY${NC}]${BOLD}${GREEN}─▸${NC} "
+    printf "${CYAN}║${NC}                                                                        ${CYAN}║${NC}\n"
+
+    # System status bar
+    printf "${CYAN}║${NC}  ${BOLD}${WHITE}┌─ SYSTEM STATUS ─────────────────────────────────────┐${BOLD}${WHITE}│${NC}  ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}  ${BOLD}${WHITE}│${NC}  ${GREEN}●${NC} Seedream ${GREEN}●${NC} Seedance ${GREEN}●${NC} Network ${GREEN}●${NC} Ready          ${BOLD}${WHITE}│${NC}  ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}  ${BOLD}${WHITE}└────────────────────────────────────────────────────────────┘${BOLD}${WHITE}│${NC}  ${CYAN}║${NC}\n"
+
+    printf "${CYAN}║${NC}                                                                        ${CYAN}║${NC}\n"
+
+    # Quick commands
+    printf "${CYAN}║${NC}  ${GRAY}┌─ 快速开始 ─────────────────────────────────────────────┐${NC}  ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}  ${GRAY}│${NC}  ${CYAN}▸${NC} ${BOLD}生成图片${NC} [描述]       ${CYAN}•${NC}  ${CYAN}▸${NC} ${BOLD}生成视频${NC} [描述] [图片]        ${GRAY}│${NC}  ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}  ${GRAY}│${NC}  ${CYAN}▸${NC} ${BOLD}优化描述${NC} [prompt]     ${CYAN}•${NC}  ${CYAN}▸${NC} ${BOLD}/help${NC} 查看完整帮助               ${GRAY}│${NC}  ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}  ${GRAY}└────────────────────────────────────────────────────────────┘${NC}  ${CYAN}║${NC}\n"
+
+    printf "${CYAN}║${NC}                                                                        ${CYAN}║${NC}\n"
+    printf "${CYAN}╚══════════════════════════════════════════════════════════════════════════════╝${NC}\n"
+
+    # Modern prompt
+    printf "\n${BOLD}${GREEN}╭─[${CYAN}%s${NC}${BOLD}]─[${CYAN}VidAI${NC}${BOLD}]─[${GREEN}●${NC} ${BOLD}ONLINE${NC}${BOLD}${GREEN}]─▸${NC} " "$(date +%H:%M)"
 }
 
 process_input() {
