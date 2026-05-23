@@ -16,13 +16,40 @@ NC='\033[0m'
 
 # 检查API配置
 check_api_config() {
+    # 优先检查环境变量
+    if [ -n "$ARK_API_KEY" ] && [ "$ARK_API_KEY" != "null" ]; then
+        return 0
+    fi
+
+    # 检查配置文件
     if [ -f "$CONFIG_FILE" ]; then
+        # 检查文件权限
+        local perms=$(stat -f "%Lp" "$CONFIG_FILE" 2>/dev/null || stat -c "%a" "$CONFIG_FILE" 2>/dev/null)
+        if [ "$perms" != "600" ] && [ "$perms" != "" ]; then
+            echo >&2 "警告: 配置文件权限不安全 ($perms)，正在修复..."
+            chmod 600 "$CONFIG_FILE" 2>/dev/null
+        fi
+
         local api_key=$(jq -r '.model.api_key // empty' "$CONFIG_FILE" 2>/dev/null)
         if [ -n "$api_key" ] && [ "$api_key" != "null" ] && [ "$api_key" != "" ]; then
             return 0
         fi
     fi
     return 1
+}
+
+# 获取API Key（支持环境变量优先）
+get_api_key() {
+    # 优先使用环境变量
+    if [ -n "$ARK_API_KEY" ]; then
+        echo "$ARK_API_KEY"
+        return
+    fi
+
+    # 从配置文件读取
+    if [ -f "$CONFIG_FILE" ]; then
+        jq -r '.model.api_key // empty' "$CONFIG_FILE" 2>/dev/null
+    fi
 }
 
 # 显示配置状态
@@ -138,6 +165,9 @@ process_input() {
         config|/config|配置)
             exec ~/vidai/bin/vidai-config
             ;;
+        security|/security|安全检查)
+            exec ~/vidai/bin/vidai-security-check
+            ;;
         *图片*|*image*|*画*|*图*)
             handle_image "$input"
             ;;
@@ -169,6 +199,7 @@ show_help() {
     printf "${CYAN}║${NC}  ${GREEN}│${NC}  ${BOLD}/help${NC}     ${GRAY}→${NC}  显示此帮助信息                              ${CYAN}║${NC}\n"
     printf "${CYAN}║${NC}  ${GREEN}│${NC}  ${BOLD}/clear${NC}    ${GRAY}→${NC}  清屏并刷新界面                                ${CYAN}║${NC}\n"
     printf "${CYAN}║${NC}  ${GREEN}│${NC}  ${BOLD}/config${NC}   ${GRAY}→${NC}  配置方舟 API Key                              ${CYAN}║${NC}\n"
+    printf "${CYAN}║${NC}  ${GREEN}│${NC}  ${BOLD}/security${NC} ${GRAY}→${NC}  运行安全检查                                  ${CYAN}║${NC}\n"
     printf "${CYAN}║${NC}  ${GREEN}│${NC}  ${BOLD}/status${NC}   ${GRAY}→${NC}  查看系统状态                                  ${CYAN}║${NC}\n"
     printf "${CYAN}║${NC}  ${GREEN}│${NC}  ${BOLD}/exit${NC}     ${GRAY}→${NC}  退出程序                                      ${CYAN}║${NC}\n"
     printf "${CYAN}║${NC}  ${GREEN}│${NC}                                                          ${CYAN}║${NC}\n"

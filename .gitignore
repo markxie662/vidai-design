@@ -37,3 +37,11 @@ build/
 .env
 .env.local
 .env.*.local
+
+# Configuration files (SECURITY: contains API keys)
+config/
+*.json
+!.gitkeep
+
+# User data
+~/.vidai/

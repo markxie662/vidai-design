@@ -61,8 +61,9 @@ input_api_key() {
         fi
     fi
 
-    # 创建配置目录
+    # 创建配置目录（安全权限）
     mkdir -p "$CONFIG_DIR"
+    chmod 700 "$CONFIG_DIR"
 
     # 创建配置文件
     cat > "$CONFIG_FILE" << EOF
@@ -89,7 +90,11 @@ input_api_key() {
 }
 EOF
 
-    printf "\n${GREEN}✓ 配置已保存到: %s${NC}\n\n" "$CONFIG_FILE"
+    # 设置配置文件安全权限
+    chmod 600 "$CONFIG_FILE"
+
+    printf "\n${GREEN}✓ 配置已保存到: %s${NC}\n" "$CONFIG_FILE"
+    printf "${GREEN}✓ 文件权限已设置为: 600 (仅用户可读写)${NC}\n\n"
 }
 
 show_config() {
