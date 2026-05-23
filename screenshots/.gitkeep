@@ -1,0 +1,17 @@
+# VidAI Design 截图
+
+## 📸 截图待添加
+
+截图指南请查看: [README.md](README.md)
+
+### 快速开始截图
+
+运行截图辅助工具：
+```bash
+~/vidai/bin/vidai-screenshot
+```
+
+或手动截图：
+1. 运行 `vidai`
+2. 使用 `Cmd + Shift + 4` 截图
+3. 保存到本目录

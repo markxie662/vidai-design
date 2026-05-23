@@ -1,0 +1,132 @@
+#!/bin/bash
+# VidAI 截图辅助脚本
+
+VERSION="0.1.0"
+CYAN='\033[0;36m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+MAGENTA='\033[0;35m'
+WHITE='\033[1;37m'
+GRAY='\033[0;37m'
+BOLD='\033[1m'
+NC='\033[0m'
+
+clear
+
+printf "${CYAN}╔══════════════════════════════════════════════════════════════════════════════╗${NC}\n"
+printf "${CYAN}║${NC}                                                                        ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}              ${MAGENTA}◗${CYAN}██${WHITE}██${CYAN}██${MAGENTA}◖${NC}        ${CYAN}╭────────╮${NC}        ${MAGENTA}◗${CYAN}██${WHITE}██${CYAN}██${MAGENTA}◖${NC}              ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}            ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}██${NC}      ${WHITE}╭────╮${MAGENTA}╰────╮${WHITE}╭────╮${NC}      ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}██${NC}            ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}          ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}███${MAGENTA}◖${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◗${CYAN}██${NC}    ${WHITE}╭────╯${MAGENTA}╰────╮${CYAN}╰────╯${WHITE}╭────╮${NC}    ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}███${MAGENTA}◖${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◗${CYAN}██${NC}          ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}        ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${NC}  ${WHITE}╭────╮${MAGENTA}╰────╮${CYAN}╭────╮${MAGENTA}╰────╮${WHITE}╭────╮${NC}  ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${NC}        ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}      ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${NC}    ${CYAN}╰────╮${WHITE}╭────╯${MAGENTA}╰────╮${CYAN}╭────╯${WHITE}╭────╯${CYAN}    ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${NC}      ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}        ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${NC}  ${WHITE}╭────╮${MAGENTA}╰────╮${CYAN}╭────╮${MAGENTA}╰────╮${WHITE}╭────╮${NC}  ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}██${NC}        ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}          ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}███${MAGENTA}◖${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◗${CYAN}██${NC}    ${WHITE}╰────╯${MAGENTA}╰────╯${CYAN}╰────╯${MAGENTA}╰────╯${WHITE}╰────╯${NC}    ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}█${CYAN}███${MAGENTA}◖${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◗${CYAN}██${NC}          ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}            ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}██${NC}      ${CYAN}╰────────────────────────╯${NC}      ${CYAN}██${MAGENTA}◗${CYAN}█${WHITE}██${CYAN}█${MAGENTA}◖${CYAN}██${NC}            ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}              ${MAGENTA}◖${CYAN}██${WHITE}██${CYAN}██${MAGENTA}◗${NC}                                            ${MAGENTA}◖${CYAN}██${WHITE}██${CYAN}██${MAGENTA}◗${NC}              ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}                                                                        ${CYAN}║${NC}\n"
+
+printf "${CYAN}║${NC}       ${BOLD}${WHITE}┌──────────────────────────────────────────────┐${NC}         ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}       ${BOLD}${WHITE}│${NC}  ${BOLD}${MAGENTA}▶${NC} ${BOLD}${WHITE}VidAI${NC} ${BOLD}${CYAN}Design${NC} ${GREEN}v${NC}${BOLD}${GREEN}0.1.0${NC} ${BOLD}${CYAN}◀${NC}                    ${BOLD}${WHITE}│${NC}         ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}       ${BOLD}${WHITE}│${NC}  ${BOLD}${CYAN}AI-Powered Video Creation Tool${NC}                 ${BOLD}${WHITE}│${NC}         ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}       ${BOLD}${WHITE}└──────────────────────────────────────────────┘${NC}         ${CYAN}║${NC}\n"
+
+printf "${CYAN}║${NC}                                                                        ${CYAN}║${NC}\n"
+
+printf "${CYAN}║${NC}  ${GREEN}┌─ 核心功能 ─────────────────────────────────────────────┐${NC}  ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${GREEN}│${NC}                                                            ${GREEN}│${NC}  ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${GREEN}│${NC}  ${CYAN}◈${NC} ${BOLD}${CYAN}图片生成${NC}           ${CYAN}◈${NC} ${BOLD}${MAGENTA}视频创作${NC}           ${CYAN}◈${NC} ${BOLD}${YELLOW}Prompt优化${NC}  ${GREEN}│${NC}  ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${GREEN}│${NC}  ${GRAY}Seedream API${NC}        ${GRAY}Seedance API${NC}         ${GRAY}智能增强${NC}        ${GREEN}│${NC}  ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${GREEN}│${NC}                                                            ${GREEN}│${NC}  ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${GREEN}└────────────────────────────────────────────────────────────┘${NC}  ${CYAN}║${NC}\n"
+
+printf "${CYAN}║${NC}                                                                        ${CYAN}║${NC}\n"
+
+printf "${CYAN}║${NC}  ${BOLD}${WHITE}┌─ SYSTEM STATUS ─────────────────────────────────────┐${BOLD}${WHITE}│${NC}  ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${BOLD}${WHITE}│${NC}  ${GREEN}●${NC} Seedream ${GREEN}●${NC} Seedance ${GREEN}●${NC} Network ${GREEN}●${NC} Ready          ${BOLD}${WHITE}│${NC}  ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${BOLD}${WHITE}└────────────────────────────────────────────────────────────┘${BOLD}${WHITE}│${NC}  ${CYAN}║${NC}\n"
+
+printf "${CYAN}║${NC}                                                                        ${CYAN}║${NC}\n"
+
+printf "${CYAN}║${NC}  ${GRAY}┌─ 快速开始 ─────────────────────────────────────────────┐${NC}  ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${GRAY}│${NC}  ${CYAN}▸${NC} ${BOLD}生成图片${NC} [描述]       ${CYAN}•${NC}  ${CYAN}▸${NC} ${BOLD}生成视频${NC} [描述] [图片]        ${GRAY}│${NC}  ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${GRAY}│${NC}  ${CYAN}▸${NC} ${BOLD}优化描述${NC} [prompt]     ${CYAN}•${NC}  ${CYAN}▸${NC} ${BOLD}/help${NC} 查看完整帮助               ${GRAY}│${NC}  ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${GRAY}└────────────────────────────────────────────────────────────┘${NC}  ${CYAN}║${NC}\n"
+
+printf "${CYAN}║${NC}                                                                        ${CYAN}║${NC}\n"
+printf "${CYAN}╚══════════════════════════════════════════════════════════════════════════════╝${NC}\n"
+
+printf "\n${BOLD}${CYAN}▶${NC} "
+
+echo ""
+echo ""
+echo "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo "${GREEN}  📸 截图说明${NC}"
+echo "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo ""
+echo "  ${CYAN}1.${NC} 使用 ${WHITE}Cmd + Shift + 4${NC} 选择截取界面区域"
+echo "  ${CYAN}2.${NC} 保存截图到: ${WHITE}~/vidai/screenshots/${NC}"
+echo "  ${CYAN}3.${NC} 建议文件名: ${WHITE}main-interface.png${NC}"
+echo ""
+echo "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo ""
+
+# 保持界面打开，等待用户截图
+read -p "截图完成后按 Enter 继续..."
+
+# 显示帮助界面
+clear
+printf "\n${CYAN}╔══════════════════════════════════════════════════════════════════════════════╗${NC}\n"
+printf "${CYAN}║${NC}                        ${BOLD}${WHITE}命令参考手册${NC}                        ${CYAN}║${NC}\n"
+printf "${CYAN}╠══════════════════════════════════════════════════════════════════╣${NC}\n"
+printf "${CYAN}║${NC}                                                              ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${GREEN}┌─ 系统命令 ──────────────────────────────────────────${NC}    ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${GREEN}│${NC}                                                          ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${GREEN}│${NC}  ${BOLD}/help${NC}     ${GRAY}→${NC}  显示此帮助信息                              ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${GREEN}│${NC}  ${BOLD}/clear${NC}    ${GRAY}→${NC}  清屏并刷新界面                                ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${GREEN}│${NC}  ${BOLD}/status${NC}   ${GRAY}→${NC}  查看系统状态                                  ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${GREEN}│${NC}  ${BOLD}/exit${NC}     ${GRAY}→${NC}  退出程序                                      ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${GREEN}│${NC}                                                          ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${GREEN}└─────────────────────────────────────────────────────${NC}    ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}                                                              ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${MAGENTA}┌─ 功能命令 ──────────────────────────────────────────${NC}    ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${MAGENTA}│${NC}                                                          ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${MAGENTA}│${NC}  ${BOLD}生成图片 [描述]${NC}                                    ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${MAGENTA}│${NC}  ${WHITE}示例:${NC} ${GRAY}生成图片 森林精灵 穿着发光连衣裙${NC}                   ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${MAGENTA}│${NC}                                                          ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${MAGENTA}│${NC}  ${BOLD}生成视频 [描述] [图片]${NC}                              ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${MAGENTA}│${NC}  ${WHITE}示例:${NC} ${GRAY}生成视频 优雅旋转 pic.png${NC}                        ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${MAGENTA}│${NC}                                                          ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${MAGENTA}│${NC}  ${BOLD}优化描述 [prompt]${NC}                                   ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${MAGENTA}│${NC}  ${WHITE}示例:${NC} ${GRAY}优化 飞舞的蝴蝶${NC}                                   ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${MAGENTA}│${NC}                                                          ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}  ${MAGENTA}└─────────────────────────────────────────────────────${NC}    ${CYAN}║${NC}\n"
+printf "${CYAN}║${NC}                                                              ${CYAN}║${NC}\n"
+printf "${CYAN}╚══════════════════════════════════════════════════════════════════╝${NC}\n"
+
+printf "\n${BOLD}${CYAN}▶${NC} "
+
+echo ""
+echo ""
+echo "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo "${GREEN}  📸 截图说明${NC}"
+echo "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo ""
+echo "  ${CYAN}1.${NC} 使用 ${WHITE}Cmd + Shift + 4${NC} 选择截取界面区域"
+echo "  ${CYAN}2.${NC} 保存截图到: ${WHITE}~/vidai/screenshots/${NC}"
+echo "  ${CYAN}3.${NC} 建议文件名: ${WHITE}help-interface.png${NC}"
+echo ""
+echo "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo ""
+
+read -p "截图完成后按 Enter 继续..."
+
+echo ""
+echo "${GREEN}✓ 截图完成！${NC}"
+echo ""
+echo "请将截图保存到: ${CYAN}~/vidai/screenshots/${NC}"
+echo ""
+echo "推荐的截图文件名:"
+echo "  • main-interface.png  (主界面)"
+echo "  • help-interface.png  (帮助界面)"
+echo ""
