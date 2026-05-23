@@ -80,7 +80,7 @@ show_banner() {
     printf "${CYAN}╚══════════════════════════════════════════════════════════════════════════════╝${NC}\n"
 
     # Modern prompt
-    printf "\n${BOLD}${GREEN}╭─[${CYAN}%s${NC}${BOLD}]─[${CYAN}VidAI${NC}${BOLD}]─[${GREEN}●${NC} ${BOLD}ONLINE${NC}${BOLD}${GREEN}]─▸${NC} " "$(date +%H:%M)"
+    printf "\n${BOLD}${CYAN}▶${NC} "
 }
 
 process_input() {
@@ -161,7 +161,7 @@ show_help() {
     printf "${CYAN}║${NC}                                                              ${CYAN}║${NC}\n"
     printf "${CYAN}╚══════════════════════════════════════════════════════════════════════════════╝${NC}\n\n"
 
-    printf "${BOLD}${GREEN}┌─[$(date +%H:%M)]─[VidAI]─[${GREEN}HELP${NC}]${BOLD}${GREEN}─▸${NC} "
+    printf "${BOLD}${GREEN}${BOLD}${CYAN}▶${NC} "
 }
 
 show_status() {
@@ -205,7 +205,7 @@ show_status() {
 
     printf "${CYAN}╚══════════════════════════════════════════════════════════════════════════════╝${NC}\n\n"
 
-    printf "${BOLD}${GREEN}┌─[$(date +%H:%M)]─[VidAI]─[${CYAN}STATUS${NC}]${BOLD}${GREEN}─▸${NC} "
+    printf "${BOLD}${GREEN}${BOLD}${CYAN}▶${NC} "
 }
 
 handle_image() {
@@ -213,8 +213,8 @@ handle_image() {
     local prompt=$(echo "$input" | sed -E 's/(生成图片|图片|image|画|画图|:|：)//g' | xargs)
 
     if [ -z "$prompt" ]; then
-        printf "\r${CYAN}┌─[$(date +%H:%M)]─[VidAI]─[${RED}ERROR${NC}]${CYAN}─▸${NC} ${RED}✗ 请描述你想要生成的图片${NC}\n\n"
-        printf "${BOLD}${GREEN}┌─[$(date +%H:%M)]─[VidAI]─[${GREEN}READY${NC}]${BOLD}${GREEN}─▸${NC} "
+        printf "\r${CYAN}${BOLD}${RED}▶${NC} ${RED}✗ 请描述你想要生成的图片${NC}\n\n"
+        printf "${BOLD}${GREEN}${BOLD}${CYAN}▶${NC} "
         return
     fi
 
@@ -235,14 +235,14 @@ handle_image() {
 
     if [ \! -f "$SEEDREAM_SKILL" ]; then
         printf "${RED}✗ Seedream skill 未安装${NC}\n\n"
-        printf "${BOLD}${GREEN}┌─[$(date +%H:%M)]─[VidAI]─[${GREEN}READY${NC}]${BOLD}${GREEN}─▸${NC} "
+        printf "${BOLD}${GREEN}${BOLD}${CYAN}▶${NC} "
         return
     fi
 
     node "$SEEDREAM_SKILL" --prompt "$prompt" --size "2K" --mode "text-to-image" --watermark false --optimize true --response_format "png" 2>&1
 
     printf "\n${GREEN}✓ 图片生成完成！${NC}\n\n"
-    printf "${BOLD}${GREEN}┌─[$(date +%H:%M)]─[VidAI]─[${GREEN}READY${NC}]${BOLD}${GREEN}─▸${NC} "
+    printf "${BOLD}${GREEN}${BOLD}${CYAN}▶${NC} "
 }
 
 handle_video() {
@@ -251,8 +251,8 @@ handle_video() {
     local image=$(echo "$input" | grep -oE '[^ ]+\.(png|jpg|jpeg)' | head -1)
 
     if [ -z "$prompt" ] || [ -z "$image" ]; then
-        printf "\r${CYAN}┌─[$(date +%H:%M)]─[VidAI]─[${RED}ERROR${NC}]${CYAN}─▸${NC} ${RED}✗ 请提供描述和图片路径${NC}\n\n"
-        printf "${BOLD}${GREEN}┌─[$(date +%H:%M)]─[VidAI]─[${GREEN}READY${NC}]${BOLD}${GREEN}─▸${NC} "
+        printf "\r${CYAN}${BOLD}${RED}▶${NC} ${RED}✗ 请提供描述和图片路径${NC}\n\n"
+        printf "${BOLD}${GREEN}${BOLD}${CYAN}▶${NC} "
         return
     fi
 
@@ -277,20 +277,20 @@ handle_video() {
 
     if [ \! -f "$SEEDANCE_SKILL" ]; then
         printf "${RED}✗ Seedance skill 未安装${NC}\n\n"
-        printf "${BOLD}${GREEN}┌─[$(date +%H:%M)]─[VidAI]─[${GREEN}READY${NC}]${BOLD}${GREEN}─▸${NC} "
+        printf "${BOLD}${GREEN}${BOLD}${CYAN}▶${NC} "
         return
     fi
 
     if [ \! -f "$image" ]; then
         printf "${RED}✗ 图片文件不存在: ${NC}%s\n\n" "$image"
-        printf "${BOLD}${GREEN}┌─[$(date +%H:%M)]─[VidAI]─[${GREEN}READY${NC}]${BOLD}${GREEN}─▸${NC} "
+        printf "${BOLD}${GREEN}${BOLD}${CYAN}▶${NC} "
         return
     fi
 
     node "$SEEDANCE_SKILL" create --prompt "$prompt" --image-file "$image" --duration 5 --ratio "16:9" --resolution "720p" --generate-audio false --watermark false --return-last-frame true 2>&1
 
     printf "\n${GREEN}✓ 视频生成完成！${NC}\n\n"
-    printf "${BOLD}${GREEN}┌─[$(date +%H:%M)]─[VidAI]─[${GREEN}READY${NC}]${BOLD}${GREEN}─▸${NC} "
+    printf "${BOLD}${GREEN}${BOLD}${CYAN}▶${NC} "
 }
 
 handle_optimize() {
@@ -298,8 +298,8 @@ handle_optimize() {
     local prompt=$(echo "$input" | sed -E 's/(优化|prompt|提示词|:|：)//g' | xargs)
 
     if [ -z "$prompt" ]; then
-        printf "\r${CYAN}┌─[$(date +%H:%M)]─[VidAI]─[${RED}ERROR${NC}]${CYAN}─▸${NC} ${RED}✗ 请提供需要优化的描述${NC}\n\n"
-        printf "${BOLD}${GREEN}┌─[$(date +%H:%M)]─[VidAI]─[${GREEN}READY${NC}]${BOLD}${GREEN}─▸${NC} "
+        printf "\r${CYAN}${BOLD}${RED}▶${NC} ${RED}✗ 请提供需要优化的描述${NC}\n\n"
+        printf "${BOLD}${GREEN}${BOLD}${CYAN}▶${NC} "
         return
     fi
 
@@ -331,12 +331,12 @@ handle_optimize() {
     printf "${WHITE}│${NC}  ${CYAN}质量${NC}:  ${GRAY}4K${NC} / ${GRAY}ultra detailed${NC}                                 ${WHITE}│${NC}\n"
     printf "${WHITE}└────────────────────────────────────────────────────────────────────────┘${NC}\n\n"
 
-    printf "${BOLD}${GREEN}┌─[$(date +%H:%M)]─[VidAI]─[${GREEN}READY${NC}]${BOLD}${GREEN}─▸${NC} "
+    printf "${BOLD}${GREEN}${BOLD}${CYAN}▶${NC} "
 }
 
 handle_unknown() {
     local input="$1"
-    printf "\r${CYAN}┌─[$(date +%H:%M)]─[VidAI]─[${RED}ERROR${NC}]${CYAN}─▸${NC} ${RED}✗ 未识别命令: ${GRAY}%s${NC}\n" "$input"
+    printf "\r${CYAN}${BOLD}${RED}▶${NC} ${RED}✗ 未识别命令: ${GRAY}%s${NC}\n" "$input"
 
     printf "\n${GRAY}试试这些命令:${NC}\n"
     printf "  ${CYAN}▸${NC} ${GREEN}生成图片${NC} ${GRAY}[描述]${NC}\n"
@@ -344,7 +344,7 @@ handle_unknown() {
     printf "  ${CYAN}▸${NC} ${YELLOW}优化描述${NC} ${GRAY}[prompt]${NC}\n"
     printf "  ${CYAN}▸${NC} ${WHITE}/help${NC}\n\n"
 
-    printf "${BOLD}${GREEN}┌─[$(date +%H:%M)]─[VidAI]─[${GREEN}READY${NC}]${BOLD}${GREEN}─▸${NC} "
+    printf "${BOLD}${GREEN}${BOLD}${CYAN}▶${NC} "
 }
 
 main() {
