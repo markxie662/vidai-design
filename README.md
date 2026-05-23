@@ -84,24 +84,69 @@
 ### 1. 安装
 
 ```bash
-git clone https://github.com/yourusername/vidai-design.git
+git clone https://github.com/markxie662/vidai-design.git
 cd vidai-design
 make install
 ```
 
-### 2. 配置
+### 2. 配置 API
 
-设置方舟 Agent Plan API Key:
+**重要：首次使用需要配置方舟 Agent Plan API Key**
+
+运行配置向导：
 
 ```bash
-export ARK_API_KEY="your-api-key-here"
+vidai-config
 ```
+
+或在 VidAI 中输入 `/config` 进入配置界面。
+
+获取 API Key：
+- 访问 [火山方舟控制台](https://console.volcengine.com/ark)
+- 创建应用并获取 API Key（格式：ark-xxx）
 
 ### 3. 使用
 
 ```bash
 vidai
 ```
+
+## 🎛️ 配置说明
+
+### API 配置文件
+
+配置文件位置：`~/.vidai/config.json`
+
+```json
+{
+  "model": {
+    "provider": "volcengine",
+    "api_key": "ark-your-api-key-here"
+  },
+  "seedream": {
+    "enabled": true,
+    "default_size": "2K",
+    "default_mode": "text-to-image",
+    "optimize": true,
+    "watermark": false
+  },
+  "seedance": {
+    "enabled": true,
+    "default_duration": 5,
+    "default_ratio": "16:9",
+    "default_resolution": "720p",
+    "generate_audio": false,
+    "watermark": false
+  }
+}
+```
+
+### 配置工具功能
+
+- **配置 API Key**: 安全存储方舟 API 凭证
+- **查看配置**: 显示当前配置状态
+- **测试连接**: 验证 API Key 有效性
+- **删除配置**: 移除已保存的配置
 
 ## 💻 命令
 
