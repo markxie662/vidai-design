@@ -1,0 +1,3 @@
+#\!/bin/bash
+# VidAI 入口脚本
+exec ~/vidai/bin/vidai-interactive
