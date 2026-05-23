@@ -1,0 +1,21 @@
+{
+  "model": {
+    "provider": "volcengine",
+    "api_key": ""
+  },
+  "seedream": {
+    "enabled": true,
+    "default_size": "2K",
+    "default_mode": "text-to-image",
+    "optimize": true,
+    "watermark": false
+  },
+  "seedance": {
+    "enabled": true,
+    "default_duration": 5,
+    "default_ratio": "16:9",
+    "default_resolution": "720p",
+    "generate_audio": false,
+    "watermark": false
+  }
+}
